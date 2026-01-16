@@ -44,7 +44,7 @@ int main(int ac, char **av)
 		std::cout << ac << "\n";
 		Span sp;
 		std::vector<int>	v;
-		for (int i = 1; i <= 10000; i++)
+		for (int i = 1; i <= ac - 1; i++)
 			v.push_back(atoi(av[i]));
 		sp.addNumbers(v.begin(), v.end());
 		std::cout << BLUE << sp.shortestSpan() << "\n" RESET;
