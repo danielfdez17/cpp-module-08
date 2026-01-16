@@ -40,6 +40,15 @@ int main(int ac, char **av)
 	{
 		(void)ac;
 		(void)av;
+		std::cout << YELLOW "\n--- Large case ---\n\n" RESET;
+		std::cout << ac << "\n";
+		Span sp;
+		std::vector<int>	v;
+		for (int i = 1; i <= 10000; i++)
+			v.push_back(atoi(av[i]));
+		sp.addNumbers(v.begin(), v.end());
+		std::cout << BLUE << sp.shortestSpan() << "\n" RESET;
+		std::cout << GREEN << sp.largestSpan() << "\n" RESET;
 	}
 	return 0;
 }

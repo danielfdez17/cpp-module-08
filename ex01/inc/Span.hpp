@@ -21,8 +21,8 @@ public:
 	Span &operator=(Span const& copy);
 	~Span();
 	void	addNumber(int num);
-	template <typename Container>
-	void	addNumbers(typename Container::const_iterator begin, typename Container::const_iterator end);
+	// template <typename Container>
+	void	addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 	int		shortestSpan() const;
 	int		largestSpan() const;
 };

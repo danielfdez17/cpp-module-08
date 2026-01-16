@@ -46,8 +46,8 @@ void	Span::addNumber(int num)
 	this->s.insert(num);
 }
 
-template <typename Container>
-void	Span::addNumbers(typename Container::const_iterator begin, typename Container::const_iterator end)
+// template <typename Container>
+void	Span::addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
 {
 	for (; begin != end; ++begin)
 		this->addNumber(*begin);
@@ -75,8 +75,5 @@ int	Span::largestSpan() const
 {
 	if (this->v.size() <= 1 || this->s.size() <= 1)
 		throw std::runtime_error("Not enough values");
-	// for (std::set<int>::iterator it = this->s.begin(); it != this->s.end(); ++it)
-	// 	std::cout << *it << " ";
-	// std::cout << "\n";
 	return std::abs(*this->s.begin() - *this->s.rbegin());
 }
