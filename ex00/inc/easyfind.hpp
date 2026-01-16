@@ -5,9 +5,8 @@
 #include "colors.hpp"
 #include <iostream>
 
-
-template <class T, class Allocator = std::allocator<T>>
-T &easyfind(T<int> v, int idx);
+template <typename Container>
+int	easyfind(const Container &v, int idx);
 
 #include "easyfind.tpp"
 #endif // __EASYFIND_HPP__
