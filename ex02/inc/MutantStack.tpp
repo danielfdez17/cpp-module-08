@@ -9,7 +9,7 @@ MutantStack<T>::MutantStack(MutantStack const&copy) : std::stack<T>(copy)
 {
 	if (this != &copy)
 	{
-
+		// ! deep copy
 	}
 }
 
@@ -18,7 +18,7 @@ MutantStack<T>	&MutantStack<T>::operator=(MutantStack const& copy)
 {
 	if (this != &copy)
 	{
-
+		// ! deep copy
 	}
 	return *this;
 }
