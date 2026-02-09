@@ -2,9 +2,25 @@
 #include "colors.hpp"
 #include <iostream>
 #include <list>
+#include <stack>
 
 int main()
 {
+	{
+		std::cout << YELLOW << "----- MutantStack Test -----\n" RESET;
+		MutantStack<std::string> mstack_str;
+		mstack_str.push("Hola,");
+		mstack_str.push("cómo");
+		mstack_str.push("estas?");
+		mstack_str.printStack();
+		MutantStack<std::string> mstack_str_copy = mstack_str;
+		std::cout << "\n";
+		mstack_str_copy.printStack();
+		mstack_str_copy.push("patata");
+		MutantStack<std::string> mstack_str_copy_constructor(mstack_str_copy);
+		std::cout << "\n";
+		mstack_str_copy_constructor.printStack();
+	}
 	{
 		std::cout << YELLOW << "----- MutantStack Test -----\n" RESET;
 		MutantStack<int> mstack;
@@ -22,6 +38,9 @@ int main()
 		std::cout << "is mstack empty? " << (mstack.empty() ? "yes" : "no") << "\n";
 		MutantStack<int>::const_iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
+		// ? check that iterator 'it' is constant and 'ite' is not constant
+		// *it = 1;
+		// *ite = 10;
 		++it;
 		--it;
 		while (it != ite)
@@ -29,9 +48,6 @@ int main()
 			std::cout << *it << "\n";
 			++it;
 		}
-		MutantStack<std::string> mstack_str;  // ! default constructor
-		std::stack<int> s(mstack);			  // ! copy constructor
-		MutantStack<int> mstack_int = mstack; // ! assignment operator
 	}
 	{
 		std::cout << YELLOW << "----- List Test Comparison -----\n" RESET;
