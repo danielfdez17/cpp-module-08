@@ -3,6 +3,7 @@
 #include <list>
 #include <map>
 
+// ! No need to handle associative containers (map...)
 int main(void)
 {
 	std::vector<int> v;
