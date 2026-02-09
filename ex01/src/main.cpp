@@ -38,6 +38,8 @@ int main(int ac, char **av)
 		std::cout << GREEN << sp.largestSpan() << "\n" RESET;
 	}
 	{
+		if (ac == 1)
+			return 0;
 		(void)ac;
 		(void)av;
 		std::cout << YELLOW "\n--- Large case ---\n\n" RESET;
