@@ -11,8 +11,8 @@ private:
 	unsigned int		size;
 	std::pair<int, int>	shortest;
 	std::pair<int, int>	largest;
-	std::vector<int>	v;
-	std::set<int>		s;
+	std::vector<int>	v; // ? vector is to search the shortest span
+	std::set<int>		s; // ? set is to easily obtain the largest span
 
 public:
 	Span();
