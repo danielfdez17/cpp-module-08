@@ -17,8 +17,11 @@ Span::Span(Span const&copy)
 		this->largest.first = copy.largest.first;
 		this->largest.second = copy.largest.second;
 		this->v = std::vector<int>(0,0);
-		for (unsigned int i = 0; i < this->size; i++) // ! copy set
+		for (unsigned int i = 0; i < this->size; i++)
 			this->v.push_back(copy.v[i]);
+		this->s = std::set<int>();
+		for (std::set<int>::const_iterator it = copy.s.begin(); it != copy.s.end(); it++)
+			this->s.insert(*it);
 	}
 }
 
@@ -32,8 +35,11 @@ Span	&Span::operator=(Span const& copy)
 		this->largest.first = copy.largest.first;
 		this->largest.second = copy.largest.second;
 		this->v = std::vector<int>(0,0);
-		for (unsigned int i = 0; i < this->size; i++) // ! copy set
+		for (unsigned int i = 0; i < this->size; i++)
 			this->v.push_back(copy.v[i]);
+		this->s = std::set<int>();
+		for (std::set<int>::const_iterator it = copy.s.begin(); it != copy.s.end(); it++)
+			this->s.insert(*it);
 	}
 	return *this;
 }
@@ -46,8 +52,13 @@ void	Span::addNumber(int num)
 	this->s.insert(num);
 }
 
-// template <typename Container>
 void	Span::addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end)
+{
+	for (; begin != end; ++begin)
+		this->addNumber(*begin);
+}
+
+void	Span::addNumbers(std::set<int>::const_iterator begin, std::set<int>::const_iterator end)
 {
 	for (; begin != end; ++begin)
 		this->addNumber(*begin);
@@ -55,6 +66,7 @@ void	Span::addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::
 
 int	Span::shortestSpan() const
 {
+	std::cout << __func__ << ": ";
 	if (this->v.size() <= 1 || this->s.size() <= 1)
 		throw std::runtime_error("Not enough values");
 	std::set<int>::iterator	it = this->s.begin();
@@ -73,6 +85,7 @@ int	Span::shortestSpan() const
 
 int	Span::largestSpan() const
 {
+	std::cout << __func__ << ": ";
 	if (this->v.size() <= 1 || this->s.size() <= 1)
 		throw std::runtime_error("Not enough values");
 	return std::abs(*this->s.begin() - *this->s.rbegin());
