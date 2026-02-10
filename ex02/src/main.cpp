@@ -12,14 +12,14 @@ int main()
 		mstack_str.push("Hola,");
 		mstack_str.push("cómo");
 		mstack_str.push("estas?");
-		mstack_str.printStack();
+		std::cout << mstack_str << "\n";
 		MutantStack<std::string> mstack_str_copy = mstack_str;
 		std::cout << "\n";
-		mstack_str_copy.printStack();
+		std::cout << mstack_str_copy << "\n";
 		mstack_str_copy.push("patata");
 		MutantStack<std::string> mstack_str_copy_constructor(mstack_str_copy);
 		std::cout << "\n";
-		mstack_str_copy_constructor.printStack();
+		std::cout << mstack_str_copy_constructor << "\n";
 	}
 	{
 		std::cout << YELLOW << "----- MutantStack Test -----\n" RESET;

@@ -51,28 +51,19 @@ public:
 		return *this;
 	}
 	~MutantStack() {}
-	void printStack() const
-	{
-		const_iterator it = this->cbegin();
-		const_iterator ite = this->cend();
-		while (it != ite)
-		{
-			std::cout << *it << " ";
-			it++;
-		}
-	}
 };
 
-// template <typename T>
-// std::ostream &operator<<(std::ostream &out, MutantStack<T> const &obj)
-// {
-// 	MutantStack<T>::const_iterator it = obj.cbegin();
-// 	MutantStack<T>::const_iterator ite = obj.cend();
-// 	while (it != ite)
-// 	{
-// 		out << *it << " ";
-// 	}
-// 	return out;
-// }
+template <typename T>
+std::ostream &operator<<(std::ostream &out, MutantStack<T> const &obj)
+{
+	typename MutantStack<T>::const_iterator it = obj.cbegin();
+	typename MutantStack<T>::const_iterator ite = obj.cend();
+	while (it != ite)
+	{
+		out << *it << " ";
+		it++;
+	}
+	return out;
+}
 
 #endif // __MUTANTSTACK_HPP__
