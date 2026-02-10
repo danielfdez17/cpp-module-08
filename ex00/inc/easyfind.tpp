@@ -3,14 +3,13 @@
 #include "easyfind.hpp"
 
 template <typename Container>
-int easyfind(const Container &c, int idx)
+bool easyfind(const Container &c, int idx)
 {
 	typename Container::const_iterator it;
 	for (it = c.begin(); it != c.end(); it++)
 	{
-		if (idx == 0)
-			return *it;
-		idx--;
+		if (*it == idx)
+			return true;
 	}
-	return 0;
+	return false;
 }

@@ -6,7 +6,7 @@
 #include <iostream>
 
 template <typename Container>
-int	easyfind(const Container &v, int idx);
+bool	easyfind(const Container &v, int value);
 
 #include "easyfind.tpp"
 #endif // __EASYFIND_HPP__
