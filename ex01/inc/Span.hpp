@@ -8,7 +8,7 @@
 class Span
 {
 private:
-	unsigned int		size;
+	long long			size;
 	std::pair<int, int>	shortest;
 	std::pair<int, int>	largest;
 	std::vector<int>	v; // ? vector is to search the shortest span
