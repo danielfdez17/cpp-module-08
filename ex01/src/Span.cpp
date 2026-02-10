@@ -48,7 +48,8 @@ Span::~Span() {}
 
 void	Span::addNumber(int num)
 {
-	if (this->size <= 0)
+	int curr_size = (int)this->size;
+	if (curr_size <= 0)
 		throw std::runtime_error("No space left to add more numbers");
 	this->v.push_back(num);
 	this->s.insert(num);
